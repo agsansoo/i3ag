@@ -1,4 +1,4 @@
-# Luke's ranger setup
+## Ranger setup
 
 ## Basic Ranger shortcuts
 
