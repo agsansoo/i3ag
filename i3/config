@@ -5,14 +5,6 @@
 # |  _ <| |_| |  __/ ___) |
 # |_| \_\\___/|_|   |____/
 #
-# LARBS
-# File originally by Luke Smith
-# File modified by agsansoo
-# Website: http://lukesmith.xyz
-# Email: luke@lukesmith.xyz
-# YouTube: https://youtube.com/c/LukeSmithxyz
-# Github: https://github.com/LukeSmithxyz
-
 # This config file will use environmental variables such as $BROWSER and $TERMINAL.
 # You can set these variables in ~/.profile or ~/.bash_profile if you have it as below:
 #
@@ -40,32 +32,6 @@ set $shutdown sudo -A shutdown -h now
 set $reboot sudo -A reboot
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $hibernate sudo -A systemctl suspend
-
-## [Basic Autostart]
-#exec --no-startup-id i3-msg "i3-msg 'workspace 1; append_layout /home/rup/.config/i3/workspace-1.json'"
-#exec --no-startup-id i3-msg "i3-msg 'workspace 2; append_layout /home/rup/.config/i3/workspace-2.json'"
-#exec --no-startup-id i3-msg "i3-msg 'workspace 3; append_layout /home/rup/.config/i3/workspace-3.json'"
-#exec --no-startup-id i3-msg "i3-msg 'workspace 4; append_layout /home/rup/.config/i3/workspace-4.json'"
-exec --no-startup-id i3-msg "i3-msg 'workspace 7; append_layout /home/rup/.config/i3/workspace-7.json'"
-#exec --no-startup-id i3-msg "i3-msg 'workspace 9; append_layout /home/rup/.config/i3/workspace-9.json'"
-
-#exec --no-startup-id i3-msg 'workspace 4; exec urxvt -e htop'
-
-#exec --no-startup-id i3-msg 'workspace 1; exec qutebrowser'
-#exec --no-startup-id i3-msg 'workspace 2; exec $term3 -e neomutt'
-#exec --no-startup-id i3-msg 'workspace 3; exec brave && sleep 5'
-exec --no-startup-id i3-msg 'workspace 7; exec $term2 -e su; exec $term2'
-#exec --no-startup-id i3-msg 'workspace 9; exec $term2 -e ranger'
-
-
-## [Assign Applications to Workspaces]
-assign [class="qutebrowser"] $ws1
-assign [class="neomutt"] $ws2
-assign [class="brave"] $ws3
-# assign [class="kitty"] $ws4
-assign [class="firefox"] $ws6
-# assign [class="kitty"] 7
-assign [class="ranger"] $ws9
 
 # #---Dropdown Windows---# #
 
