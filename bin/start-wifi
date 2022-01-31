@@ -1,0 +1,20 @@
+#! /bin/sh
+
+echo "Turning ON wifi connection";
+#ifconfig wlp58s0 down;
+#systemctl restart NetworkManager;
+nmcli r wifi on;
+ifconfig;
+route;
+ping -c 5 yahoo.com;
+
+echo " Setting Time "
+ntpdate pool.ntp.org;
+
+echo "Checking Network Drives";
+df -h;
+
+echo [DONE];
+
+
+

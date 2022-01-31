@@ -1,0 +1,141 @@
+#!/bin/sh
+
+rs="rsync -vv -ruplt --delete-after --ignore-errors" #rsync command
+source=/home/rup/Docs-2022 #dir of files to backup
+dest=/run/media/rup/agsync/1AG/work/ #destination for backup
+$rs $source $dest #backup command for first sync
+
+rs2="rsync -vv -ruplt --delete-after --ignore-errors" #rsync command
+source2=/home/rup/Documents #dir of files to backup
+dest2=/run/media/rup/agsync/1AG/work/ #destination for backup
+$rs2 $source2 $dest2 #backup command for first sync
+
+rs3="rsync -vv -ruplt --delete-after --ignore-errors" #rsync command
+source3=/home/rup/Downloads #dir of files to backup
+dest3=/run/media/rup/agsync/1AG/work/ #destination for backup
+$rs3 $source3 $dest3 #backup command for first sync
+
+rs4="rsync -vv -ruplt --delete-after --ignore-errors" #rsync command
+source4=/home/rup/1Files #dir of files to backup
+dest4=/run/media/rup/agsync/1AG/work/ #destination for backup
+$rs4 $source4 $dest4 #backup command for first sync
+
+rs5="rsync -vv -ruplt --delete-after --ignore-errors" #rsync command
+source5=/home/rup/Music #dir of files to backup
+dest5=/run/media/rup/agsync/1AG/work/ #destination for backup
+$rs5 $source5 $dest5 #backup command for first sync
+
+rs6="rsync -vv -ruplt --delete-after --ignore-errors" #rsync command
+source6=/home/rup/Pictures #dir of files to backup
+dest6=/run/media/rup/agsync/1AG/work/ #destination for backup
+$rs6 $source6 $dest6 #backup command for first sync
+
+rs7="rsync -vv -ruplt --delete-after --ignore-errors" #rsync command
+source7=/home/rup/screenshots #dir of files to backup
+dest7=/run/media/rup/agsync/1AG/work/ #destination for backup
+$rs7 $source7 $dest7 #backup command for first sync
+
+rs8="rsync -vv -ruplt --delete-after --ignore-errors" #rsync command
+source8=/home/rup/3wpod #dir of files to backup
+dest8=/run/media/rup/agsync/1AG/work/ #destination for backup
+$rs8 $source8 $dest8 #backup command for first sync
+
+rs9="rsync -vv -ruplt --delete-after --ignore-errors" #rsync command
+source9=/home/rup/4git #dir of files to backup
+dest9=/run/media/rup/agsync/1AG/work/ #destination for backup
+$rs9 $source9 $dest9 #backup command for first sync
+
+echo "Workflow Docs Backup Done";
+
+echo "Mirroring of data complete";
+
+echo '****************************';
+echo "Comparing file counts";
+cd /home/rup/Docs-2022/ || exit;
+echo "[Docs-2022]";
+echo "source";
+du -a |wc -l;
+cd /run/media/rup/agsync/1AG/work/Docs-2022/ || exit;
+echo "dest";
+du -a |wc -l;
+echo '****************************';
+cd /home/rup/Documents/ || exit;
+echo "[Documents]";
+echo "source2";
+du -a |wc -l;
+cd /run/media/rup/agsync/1AG/work/Documents/ || exit;
+echo "dest2";
+du -a |wc -l;
+echo '****************************';
+cd /home/rup/Downloads/ || exit;
+echo "[Downloads]";
+echo "source3";
+du -a |wc -l;
+cd /run/media/rup/agsync/1AG/work/Downloads/ || exit;
+echo "dest3";
+du -a |wc -l;
+echo '****************************';
+cd /home/rup/1Files/ || exit;
+echo "[1Files]"
+echo "source4";
+du -a |wc -l;
+cd /run/media/rup/agsync/1AG/work/1Files/ || exit;
+echo "dest4";
+du -a |wc -l;
+echo '****************************';
+cd /home/rup/Music/ || exit;
+echo "[Music]";
+echo "source5";
+du -a |wc -l;
+cd /run/media/rup/agsync/1AG/work/Music/ || exit;
+echo "dest5";
+du -a |wc -l;
+echo '****************************';
+cd /home/rup/Pictures/ || exit;
+echo "[Pictures]";
+echo "source6";
+du -a |wc -l;
+cd /run/media/rup/agsync/1AG/work/Pictures/ || exit;
+echo "dest6";
+du -a |wc -l;
+echo '****************************';
+cd /home/rup/screenshots/ || exit;
+echo "[Screenshots]";
+echo "source7";
+du -a |wc -l;
+cd /run/media/rup/agsync/1AG/work/screenshots/ || exit;
+echo "dest7";
+du -a |wc -l;
+echo '****************************';
+cd /home/rup/3wpod/ || exit;
+echo "[3wpod]";
+echo "source8";
+du -a |wc -l;
+cd /run/media/rup/agsync/1AG/work/3wpod/ || exit;
+echo "dest8";
+du -a |wc -l;
+echo '****************************';
+cd /home/rup/4git/ || exit;
+echo "[4git]";
+echo "source9";
+du -a |wc -l;
+cd /run/media/rup/agsync/1AG/work/4git/ || exit;
+echo "dest9";
+du -a |wc -l;
+echo '****************************';
+
+
+
+
+echo "[DONE]";
+date;
+echo '****************************';
+
+
+
+#chmod 0700 -R /run/media/rup/agsync/1AG/;
+#chown rup -R /run/media/rup/agsync/1AG/;
+#chgrp wheel -R /run/media/rup/agsync/1AG/;
+
+
+exit

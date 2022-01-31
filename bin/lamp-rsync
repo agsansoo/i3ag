@@ -1,0 +1,34 @@
+#!/bin/sh
+if df -hT | grep "/mnt/www"
+then
+	echo "Start rsync" | dmenu;
+
+rs="rsync -vv -ruplt --delete-after --ignore-errors" #rsync command
+
+source=/mnt/nfs-data3/backups/daily/*.sql #dir of files to backup
+dest=/run/media/rup/agsync/1AG/lamp #destination for backup
+
+$rs $source $dest #backup command for first sync
+
+echo "SQL file Backup Done";
+
+echo "Mirroring of data complete";
+
+echo '****************************';
+echo "Comparing file counts";
+cd /mnt/nfs-data3/backups/daily/ || exit;
+echo "source";
+du -a |wc -l;
+cd /run/media/rup/agsync/1AG/lamp || exit;
+echo "backup";
+du -a |wc -l;
+echo '****************************';
+echo "[DONE]";
+date;
+echo '****************************';
+
+echo "rsync finished" | dmenu || exit;
+
+else echo "nfs-data not mounted" | dmenu || exit;
+
+fi
