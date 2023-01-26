@@ -5,14 +5,6 @@
 # |  _ <| |_| |  __/ ___) |
 # |_| \_\\___/|_|   |____/
 #
-# LARBS
-# File originally by Luke Smith
-# File modified by agsansoo
-# Website: http://lukesmith.xyz
-# Email: luke@lukesmith.xyz
-# YouTube: https://youtube.com/c/LukeSmithxyz
-# Github: https://github.com/LukeSmithxyz
-
 # This config file will use environmental variables such as $BROWSER and $TERMINAL.
 # You can set these variables in ~/.profile or ~/.bash_profile if you have it as below:
 #
@@ -21,52 +13,25 @@
 
 # #---Basic Definitions---# #
 # Needed for i3-gaps
-for_window [class="^.*"] border pixel 0
-gaps inner 12
+for_window [class="^.*"] border pixel 5
+gaps inner 5
 gaps outer 4
-#border_radius 7
+border_radius 5
 smart_gaps on
-smart_borders on set 10
-smart_gaps inverse_outer
+smart_borders on
 
 # bindsym button3 floating toggle
 
 set $term --no-startup-id $TERMINAL
 set $term2 --no-startup-id kitty
 set $term3 --no-startup-id alacritty
-set $term4 --no-startup-id terminology
+set $term4 --no-startup-id xfce4-terminal
 set $mod Mod1
 set $stoprec --no-startup-id dmenurecord kill
 set $shutdown sudo -A shutdown -h now
 set $reboot sudo -A reboot
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $hibernate sudo -A systemctl suspend
-
-## [Basic Autostart]
-#exec --no-startup-id i3-msg "i3-msg 'workspace 1; append_layout /home/rup/.config/i3/workspace-1.json'"
-#exec --no-startup-id i3-msg "i3-msg 'workspace 2; append_layout /home/rup/.config/i3/workspace-2.json'"
-#exec --no-startup-id i3-msg "i3-msg 'workspace 3; append_layout /home/rup/.config/i3/workspace-3.json'"
-#exec --no-startup-id i3-msg "i3-msg 'workspace 4; append_layout /home/rup/.config/i3/workspace-4.json'"
-exec --no-startup-id i3-msg "i3-msg 'workspace 7; append_layout /home/rup/.config/i3/workspace-7.json'"
-#exec --no-startup-id i3-msg "i3-msg 'workspace 9; append_layout /home/rup/.config/i3/workspace-9.json'"
-
-#exec --no-startup-id i3-msg 'workspace 4; exec urxvt -e htop'
-
-#exec --no-startup-id i3-msg 'workspace 1; exec qutebrowser'
-#exec --no-startup-id i3-msg 'workspace 2; exec $term3 -e neomutt'
-#exec --no-startup-id i3-msg 'workspace 3; exec brave && sleep 5'
-exec --no-startup-id i3-msg 'workspace 7; exec $term2 -e su; exec $term2'
-#exec --no-startup-id i3-msg 'workspace 9; exec $term2 -e ranger'
-
-
-## [Assign Applications to Workspaces]
-assign [class="qutebrowser"] $ws1
-assign [class="neomutt"] $ws2
-assign [class="brave"] $ws3
-# assign [class="kitty"] $ws4
-assign [class="firefox"] $ws6
-# assign [class="kitty"] 7
-assign [class="ranger"] $ws9
 
 # #---Dropdown Windows---# #
 
@@ -96,7 +61,7 @@ for_window [instance="ckmail"] border pixel 4
 for_window [instance="ckmail"] sticky enable
 
 # Fourth I have a tmux window to quick reference key binds.
-# Bind this to mod+F4.
+# Bind this to mod+F5.
 for_window [instance="i3keys"] floating enable
 for_window [instance="i3keys"] resize set 1600 800
 for_window [instance="i3keys"] move scratchpad
@@ -125,8 +90,6 @@ exec --no-startup-id mpd
 # megasync startup
 # picom startup
 #exec_always --no-startup-id picom
-#exec_always --no-startup-id picom  -b --config ~/.config/picom/picom.conf
-exec_always --no-startup-id xborders -c /home/rup/xborder/config.json
 
 # Set Xresources colors:
 set_from_resource $darkblack	color0  #000000
@@ -170,7 +133,7 @@ assign [class="brave"] $ws6
 
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec $term2
-bindsym $mod+Shift+Return 	exec $term4
+bindsym $mod+Shift+Return 	exec xfce4-terminal
 bindsym $mod+Ctrl+Return	exec $term2 -e su
 
 bindsym $mod+Shift+space 	floating toggle
@@ -187,7 +150,6 @@ bindsym $mod+grave		exec --no-startup-id dmenuunicode
 
 #STOP/HIDE EVERYTHING:
 bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec $truepause ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e ranger
-bindsym $mod+Ctrl+Delete 	exec mpv --fullscreen test1.mkv --no-input-default-bindings
 
 # Show selection:
 bindsym $mod+Insert		exec --no-startup-id showclip
@@ -199,13 +161,13 @@ bindsym $mod+Shift+q		exec --no-startup-id dmqute
 bindsym $mod+Ctrl+q		exec qutebrowser
 
 bindsym $mod+w			layout tabbed
-bindsym $mod+Shift+w		exec $term -e nmtui
-bindsym $mod+Ctrl+w		exec --no-startup-id librewolf
+bindsym $mod+Ctrl+w		exec $term -e nmtui
+bindsym $mod+Shift+w		exec --no-startup-id qutebrowser
 
 bindsym $mod+e			layout toggle split
 bindsym $mod+Ctrl+e		exec $term3 -e neomutt
-bindsym $mod+Shift+e		exec evolution
-#bindsym $mod+Shift+e 		exec xclip -selection clipboard -o | qrencode -o ~/.qr.png; exec feh -FZ ~/.qr.png
+#bindsym $mod+Shift+e		exec evolution
+bindsym $mod+Shift+e 		exec xclip -selection clipboard -o | qrencode -o ~/.qr.png; exec feh -FZ ~/.qr.png
 
 bindsym $mod+Shift+r		exec --no-startup-id rstudio-bin
 bindsym $mod+r 			exec $term2 -e ranger
@@ -289,10 +251,8 @@ bindsym $mod+v			exec $term -e ncmpcpp -s visualizer
 bindsym $mod+Shift+v		exec --no-startup-id pavucontrol
 bindsym $mod+Ctrl+v		exec --no-startup-id virtualbox; workspace $ws8
 
-#bindsym $mod+b			bar mode toggle
-#bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id bottomleft
-bindsym $mod+b			exec --no-startup-id dmenubookmarks
-bindsym $mod+Shift+b		exec --no-startup-id bookmarkthis
+bindsym $mod+b			bar mode toggle
+bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id bottomleft
 bindsym $mod+Ctrl+b		exec brave; workspace $ws3
 
 bindsym $mod+n			exec --no-startup-id xfce4-terminal -e newsboat

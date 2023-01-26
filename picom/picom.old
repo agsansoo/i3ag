@@ -12,7 +12,7 @@ shadow = true;
 
 # The blur radius for shadows, in pixels. (defaults to 12)
 # shadow-radius = 12
-shadow-radius = 10;
+shadow-radius = 12;
 
 # The opacity of shadows. (0.0 - 1.0, defaults to 0.75)
 # shadow-opacity = .75
@@ -44,9 +44,9 @@ shadow-offset-y = -10;
 #
 # shadow-exclude = []
 shadow-exclude = [
-  #"name = 'Notification'",
+  "name = 'Notification'",
   "class_g = 'Conky'",
-  #"class_g ?= 'Notify-osd'",
+  "class_g ?= 'Notify-osd'",
   "class_g = 'Cairo-clock'",
   "_GTK_FRAME_EXTENTS@:c"
 ];
@@ -140,7 +140,7 @@ focus-exclude = [ "class_g = 'Cairo-clock'" ];
 # Sets the radius of rounded window corners. When > 0, the compositor will
 # round the corners of windows. Does not interact well with
 # `transparent-clipping`.
-corner-radius = 12
+corner-radius = 10
 
 # Exclude conditions for rounded corners.
 rounded-corners-exclude = [

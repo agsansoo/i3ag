@@ -1,11 +1,11 @@
 #!/bin/sh
-if df -hT | grep "/mnt/www"
+if df -hT | grep "mnt/backups"
 then
 	echo "Start rsync" | dmenu;
 
 rs="rsync -vv -ruplt --delete-after --ignore-errors" #rsync command
 
-source=/mnt/nfs-data3/backups/daily/*.sql #dir of files to backup
+source=/mnt/backups/daily/*.sql #dir of files to backup
 dest=/run/media/rup/agsync/1AG/lamp #destination for backup
 
 $rs $source $dest #backup command for first sync
@@ -16,7 +16,7 @@ echo "Mirroring of data complete";
 
 echo '****************************';
 echo "Comparing file counts";
-cd /mnt/nfs-data3/backups/daily/ || exit;
+cd /mnt/backups/daily/ || exit;
 echo "source";
 du -a |wc -l;
 cd /run/media/rup/agsync/1AG/lamp || exit;
@@ -29,6 +29,6 @@ echo '****************************';
 
 echo "rsync finished" | dmenu || exit;
 
-else echo "nfs-data not mounted" | dmenu || exit;
+else echo "mnt/backups not mounted" | dmenu || exit;
 
 fi
