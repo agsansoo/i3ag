@@ -1,0 +1,16 @@
+hash -d h=~/
+hash -d d=~/Documents
+hash -d Md=/run/media/rup/agsync/1AG/Docs
+hash -d n=~/Documents/Notes
+hash -d M=~/Documents/Memo
+hash -d Wf=~/Documents/Workflow
+hash -d D=~/Downloads
+hash -d m=~/Music
+hash -d pp=~/Pictures
+hash -d vv=~/Videos
+hash -d cf=${XDG_CONFIG_HOME:-$HOME/.config}
+hash -d sc=~/.local/bin
+hash -d mn=/mnt
+hash -d wm=/mnt/www/myersdb
+hash -d wd=/mnt/www/dwglog
+hash -d wa=/mnt/webandy/files

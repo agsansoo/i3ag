@@ -1,0 +1,17 @@
+# You can add comments to these files with #
+h	~/
+d	~/Documents
+Md	/run/media/rup/agsync/1AG/Docs
+n	~/Documents/Notes
+M	~/Documents/Memo
+Wf	~/Documents/Workflow
+D	~/Downloads
+m	~/Music
+pp	~/Pictures
+vv	~/Videos
+cf	${XDG_CONFIG_HOME:-$HOME/.config}
+sc	~/.local/bin
+mn	/mnt
+wm	/mnt/www/myersdb
+wd	/mnt/www/dwglog
+wa	/mnt/webandy/files
