@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# The famous "get a menu of bookmarks to copy" script.
+# Must have xclip installed to even show menu.
+
+bookmark="$(xclip -o)"
+file="$HOME/.local/share/larbs/snippets"
+
+if grep -q "^$bookmark$" "$file"; then
+	notifiy-send "Oops." "Already bookmarked!"
+else
+	notifiy-send "Bookmark added!" "$bookmark is now saved to file."
+
+	echo "$bookmark" >> "$file"
+fi

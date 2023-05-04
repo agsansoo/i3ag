@@ -1,0 +1,23 @@
+#!/bin/sh
+ShortName="ETH"
+
+if [ ! -d ~/.cache/crypto ]; then
+	mkdir ~/.cache/crypto
+fi
+
+echo "$ShortName" | while read coin
+do
+	price=$(curl rate.sx/1$coin)
+	if [ $coin = "BTC" ]; then
+		icon=🦁
+	elif [ $coin = "ETH" ]; then
+		icon=📖
+	elif [ $coin = "ADA" ]; then
+		icon=⚛️
+	fi
+
+	echo "$icon $coin: $price" > ~/.cache/crypto/$coin
+
+done
+
+date > ~/.cache/crypto/time

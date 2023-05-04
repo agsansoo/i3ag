@@ -1,0 +1,34 @@
+#!/bin/sh
+
+if lsblk | grep "agsync";
+then
+
+echo "👍uploading to usb key" | dmenu;
+
+rs="rsync -vv -ruplt --delete-after --ignore-errors" #rsync command
+
+source=/home/rup/1AG #dir of files to backup
+dest=/run/media/rup/agsync #destination for backup
+
+$rs $source $dest #backup command for first sync
+
+
+echo "Mirroring of data complete";
+
+echo '****************************';
+echo "Comparing file counts";
+cd /home/rup/1AG/ || exit;
+echo "source-1AG";
+du -a |wc -l;
+cd /run/media/rup/agsync/1AG/ || exit;
+echo "backup-usbkey";
+du -a |wc -l;
+echo '****************************';
+echo "[DONE]";
+date;
+echo '****************************';
+echo "🙂uploading to usb key complete" | dmenu || exit;
+
+else echo "Where is the usb key" | dmenu || exit;
+
+fi

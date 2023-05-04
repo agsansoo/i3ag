@@ -1,0 +1,5 @@
+#!/bin/sh
+
+DEV=$(ip route | awk '/default/ {print $5}')
+
+printf "$DEV \n"
