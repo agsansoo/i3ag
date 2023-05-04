@@ -29,6 +29,7 @@ alias \
 	df="df -hT" \
 	dufl="duf -only local" \
 	dufn="duf -only network" \
+	lf="lfub" \
 	trem="transmission-remote" \
 	YT="youtube-viewer" \
 	sdn="sudo shutdown -h now" \
