@@ -1,3 +1,0 @@
-#!/bin/sh
-
-ifinstalled bc && echo "Andy's Calculator 😛" && bc -lq

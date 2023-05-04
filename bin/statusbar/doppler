@@ -1,5 +1,0 @@
-#!/bin/sh
-
-notify-send "☔ Loading Doppler Radar.." " Please Wait a Moment..."
-
-mpv --loop-file=inf "https://radar.weather.gov/lite/N0R/SOX_loop.gif"

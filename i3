@@ -1,0 +1,1 @@
+/home/rup/.config/i3

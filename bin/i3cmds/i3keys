@@ -1,5 +1,0 @@
-#!/bin/sh
-
-egrep ^bind ~/.config/i3/config | sed 's/#.*//g' | column -ts $'\'' | pr -2 -w 250 -t | less
-
-# sh -c 'egrep ^bind ~/.config/i3/config | cut -d '\'' '\'' -f 2- | sed '\''s/ /\t/'\'' | column -ts $'\''\t'\'' | pr -2 -w 145 -t | less'

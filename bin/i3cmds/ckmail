@@ -1,3 +1,0 @@
-#!/bin/sh
-
-ifinstalled mailsync && echo "Getting new mail 😛" && /usr/bin/mailsync

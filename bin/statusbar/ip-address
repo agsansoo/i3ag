@@ -1,5 +1,0 @@
-#!/bin/sh
-
-IP=$(ip route | awk '/192.168.0.0\/24/ {print $9}')
-
-printf "$IP \n"
