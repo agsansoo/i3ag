@@ -1,0 +1,16 @@
+#!/bin/sh
+if lsblk | grep "agsync";
+then
+
+echo "🔑 Locking agsync" | dmenu;
+
+echo 'Close Drive'
+umount /run/media/rup/agsync;
+cryptsetup close agsync;
+
+echo [Done];
+echo "🙂 USB Key Locked and Secure" | dmenu || exit;
+
+else echo "Where is the usb key" | dmenu || exit;
+
+fi

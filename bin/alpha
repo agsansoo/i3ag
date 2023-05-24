@@ -1,0 +1,17 @@
+#!/bin/sh
+if lsblk | grep "sdb1";
+then
+
+echo "🔑 Unlocking agsync" | dmenu;
+
+echo 'Open Drive'
+cryptsetup open /dev/sdb1 agsync;
+
+echo [Mount agsync];
+mount /dev/mapper/agsync /run/media/rup/agsync;
+echo [Done];
+echo "🙂 USB Key Unlocked" | dmenu || exit;
+
+else echo "Where is the usb key" | dmenu || exit;
+
+fi
